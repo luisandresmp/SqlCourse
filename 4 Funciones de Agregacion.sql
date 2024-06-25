@@ -20,6 +20,14 @@ FROM Employees;
 SELECT MIN(Salary) AS LowestSalary
 FROM Employees;
 
+SELECT 
+	COUNT(*) AS TotalEmployees
+	, SUM(Salary) AS TotalSalaries
+	, AVG(Salary) AS AverageSalary
+	, MAX(Salary) AS HighestSalary
+	, MIN(Salary) AS LowestSalary
+FROM Employees
+
 -- GROUP BY
 -- Agrupar por una Columna
 
@@ -52,10 +60,22 @@ ORDER BY Salary DESC;
 -- Combinación de GROUP BY, HAVING y ORDER BY
 -- Agrupar, Filtrar y Ordenar
 
-SELECT Position, COUNT(*) AS NumberOfEmployees, AVG(Salary) AS AverageSalary
+SELECT 
+	Position, COUNT(*) AS NumberOfEmployees, 
+	AVG(Salary) AS AverageSalary -- Promedio del sueldo
+	
 FROM Employees
+WHERE 1=1
+
+--RECOMENDACION:
+--AND Position IN ('Manager', 'Developer')
+
+--NO ES RECOMENDABLE:
+--AND Position='Manager'
+--AND Position='Developer'
+
 GROUP BY Position
-HAVING COUNT(*) > 1
+HAVING COUNT(*) > 0
 ORDER BY AverageSalary DESC;
 
 -- Ejemplo Completo

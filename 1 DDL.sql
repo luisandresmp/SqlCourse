@@ -25,6 +25,3 @@ TRUNCATE TABLE dbo.Employees;
 
 -- Eliminar Tabla (DROP)
 DROP TABLE dbo.Employees;
-
-
-
